@@ -15,18 +15,17 @@ De instructies zijn geschreven onder de veronderstelling dat u Anaconda en Pytho
 
 ## Voorbereiding
 Open uw terminal (bijvoorbeeld Anaconda PowerShell-prompt) en open de map waarin u deze repository wilt installeren, maak bijvoorbeeld een map genaamd Repositories en open deze in uw terminal (u kunt het commando cd gebruiken om naar de benodigde map te gaan, bijvoorbeeld cd windows/users/repositories).
-Clone deze repo met het commando <br><code>git clone https://github.com/SSC-ICT-Innovatie/LearningLion.git</code><br>
+Clone deze repo met het commando <br><code>git clone [https://github.com/SSC-ICT-Innovatie/LearningLion.git](https://github.com/JitseGoutbeek/LerendeLeeuw.git)</code><br>
 Maak een submap vector_stores in de hoofdmap van de gekloonde repo
-Conda virtuele omgeving instellen
+## Conda virtuele omgeving instellen
 Open een Anaconda-prompt of andere opdrachtprompt
 Ga naar de hoofdmap van het project en maak een Python-omgeving met conda met behulp van command-line commando<br>
-<code>conda env create -f learninglion.yml</code><br>
-NB: De naam van de omgeving is standaard learninglion. Het kan worden gewijzigd in een naam naar keuze in de eerste regel van het yml-bestand
-Activeer deze omgeving met behulp van command-line commando<br>
-<code>conda activate learninglion</code><br>
+<code>conda env create -f lerendeleeuw.yml</code><br>
+NB: De naam van de omgeving is standaard lerendeleeuw. Het kan worden gewijzigd in een naam naar keuze in de eerste regel van het yml-bestand
+Activeer deze omgeving met behulp van command-line commando <br><code>conda activate lerendeleeuw</code><br>
 Alle benodigde pakketten kunnen nu worden geïnstalleerd met het command-line commando<br>
 <code>pip install -r requirements.txt</code><br> (sla dit over als u liever in een virtuele omgeving werkt)
-Pip virtuele omgeving instellen
+## Pip virtuele omgeving instellen
 ! U hoeft geen pip virtuele omgeving in te stellen als u uw conda-omgeving al hebt ingesteld.
 
 Open een Anaconda-prompt of andere opdrachtprompt
