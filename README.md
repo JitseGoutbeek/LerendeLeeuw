@@ -15,7 +15,7 @@ De instructies zijn geschreven onder de veronderstelling dat u Anaconda en Pytho
 
 ## Voorbereiding
 Open uw terminal (bijvoorbeeld Anaconda PowerShell-prompt) en open de map waarin u deze repository wilt installeren, maak bijvoorbeeld een map genaamd Repositories en open deze in uw terminal (u kunt het commando cd gebruiken om naar de benodigde map te gaan, bijvoorbeeld cd windows/users/repositories).
-Clone deze repo met het commando <br><code>git clone [https://github.com/SSC-ICT-Innovatie/LearningLion.git](https://github.com/JitseGoutbeek/LerendeLeeuw.git)</code><br>
+Clone deze repo met het commando <br><code>git clone https://github.com/JitseGoutbeek/LerendeLeeuw.git </code><br>
 Maak een submap vector_stores in de hoofdmap van de gekloonde repo
 ## Conda virtuele omgeving instellen
 Open een Anaconda-prompt of andere opdrachtprompt
