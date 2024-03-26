@@ -1,47 +1,42 @@
-# LearningLion
-This is the English version of the LearningLion project for the Dutch version see: https://github.com/SSC-ICT-Innovatie/LearningLion-web
+# LerendeLeeuw
+Dit is de Nederlandse versie van het LearningLion-project. Voor de Engelse versie zie: https://github.com/SSC-ICT-Innovatie/LearningLion-web
 
-## Description of the project
-The project is a study on the use of generative AI to improve the services of SSC-ICT by supporting employees and optimizing internal processes. In particular, the focus is on generative large language models (LLM), in the form of Retrieval Augmented Generation (RAG), because they can have the most significant impact on the daily work of SSC-ICT employees. The assignment (Speech Recognition & AI) has been approved by the SpB and has been running since the beginning of 2023. 
+## Beschrijving van het project
+Het project is een studie naar het gebruik van generatieve AI om de diensten van SSC-ICT te verbeteren door medewerkers te ondersteunen en interne processen te optimaliseren. In het bijzonder ligt de focus op generatieve grote taalmodellen (LLM), in de vorm van Retrieval Augmented Generation (RAG), omdat ze de grootste impact kunnen hebben op het dagelijkse werk van SSC-ICT-medewerkers. De opdracht (Speech Recognition & AI) is goedgekeurd door de SpB en loopt sinds begin 2023.
 
 ## Repository
-The current repository is based on the repository made by PBL under the direction of Stefan Troost (https://github.com/pbl-nl/appl-docchat), changed for our specific use cases. The demo is an example of Retrieval Augmented Generation (RAG) and allows for the use and evaluation of both Open and Closed-Source LLM's. It makes use of Langchain, Chroma and Streamlit among other things to perform document Q&A. Right now it is mostly a clone with some additions (to make running it locally easier for example) and it contains additional project documents (in project_docs) that provide background information about this project, the decisions we made and the research we conducted. 
 
-A schematic overview of how the application works is shown here:
+De huidige repository is gebaseerd op de repository gemaakt door PBL onder leiding van Stefan Troost (https://github.com/pbl-nl/appl-docchat), aangepast voor onze specifieke gebruiksscenario's. De demo is een voorbeeld van Retrieval Augmented Generation (RAG) en maakt het mogelijk om zowel Open als Closed-Source LLM's te gebruiken en te evalueren. Het maakt gebruik van Langchain, Chroma en Streamlit, onder andere, om documentvragen en -antwoorden uit te voeren. Op dit moment is het voornamelijk een kloon met enkele toevoegingen (om het lokaal uitvoeren ervan bijvoorbeeld gemakkelijker te maken) en bevat het aanvullende projectdocumenten (in project_docs) die achtergrondinformatie bieden over dit project, de beslissingen die we hebben genomen en het onderzoek dat we hebben uitgevoerd.
 
-![RAG flow design](https://github.com/SSC-ICT-Innovatie/LearningLion/blob/main/project_docs/images/RAG%20flow%20design.png)
 
-## How to use this repo
-This repo is tested on a Windows platform.
-The instructions as written assume you have Anaconda and Python installed. 
-If not, download Python (https://www.python.org/downloads/) and follow this installation guide for Anaconda:
-https://docs.anaconda.com/free/anaconda/install/windows/.
+## Hoe deze repo te gebruiken
+Deze repo is getest op een Windows-platform.
+De instructies zijn geschreven onder de veronderstelling dat u Anaconda en Python hebt geïnstalleerd. Zo niet, download Python (https://www.python.org/downloads/) en volg deze installatiegids voor Anaconda: https://docs.anaconda.com/free/anaconda/install/windows/.
 
-## Preparation
-1. Open your terminal (e.g. anaconda powershell prompt) and open the folder in which you want to install this repository, for example make a folder called Repositories and open it in your terminal (you can use the command cd to go to the necessary folder, for example `cd windows/users/repositories`).
-2. Clone this repo with the command <br><code>git clone https://github.com/SSC-ICT-Innovatie/LearningLion.git</code><br>
-3. Create a subfolder vector_stores in the root folder of the cloned repo
-  
-### Conda virtual environment setup
-1. Open an Anaconda prompt or other command prompt
-2. Go to the root folder of the project and create a Python environment with conda using commandline command<br>
+## Voorbereiding
+Open uw terminal (bijvoorbeeld Anaconda PowerShell-prompt) en open de map waarin u deze repository wilt installeren, maak bijvoorbeeld een map genaamd Repositories en open deze in uw terminal (u kunt het commando cd gebruiken om naar de benodigde map te gaan, bijvoorbeeld cd windows/users/repositories).
+Clone deze repo met het commando <br><code>git clone https://github.com/SSC-ICT-Innovatie/LearningLion.git</code><br>
+Maak een submap vector_stores in de hoofdmap van de gekloonde repo
+Conda virtuele omgeving instellen
+Open een Anaconda-prompt of andere opdrachtprompt
+Ga naar de hoofdmap van het project en maak een Python-omgeving met conda met behulp van command-line commando<br>
 <code>conda env create -f learninglion.yml</code><br>
-NB: The name of the environment is learninglion by default. It can be changed to a name of your choice in the first line of the yml file
-3. Activate this environment using commandline command<br>
+NB: De naam van de omgeving is standaard learninglion. Het kan worden gewijzigd in een naam naar keuze in de eerste regel van het yml-bestand
+Activeer deze omgeving met behulp van command-line commando<br>
 <code>conda activate learninglion</code><br>
-4. All required packages can now be installed with command line command<br>
-<code>pip install -r requirements.txt</code><br> (skip this if you rather work in a virtual environment)
+Alle benodigde pakketten kunnen nu worden geïnstalleerd met het command-line commando<br>
+<code>pip install -r requirements.txt</code><br> (sla dit over als u liever in een virtuele omgeving werkt)
+Pip virtuele omgeving instellen
+! U hoeft geen pip virtuele omgeving in te stellen als u uw conda-omgeving al hebt ingesteld.
 
-### Pip virtual environment setup
-! You don't need to set up a pip virtual environment, if you already have your conda environment set up.
-1. Open an Anaconda prompt or other command prompt
-2. Go to the root folder of the project and create a Python environment with pip using commandline command<br>
+Open een Anaconda-prompt of andere opdrachtprompt
+Ga naar de hoofdmap van het project en maak een Python-omgeving met pip met behulp van command-line commando<br>
 <code>python -m venv venv</code><br>
-This will create a basic virtual environment folder named venv in the root of your project folder<br>
-NB: The chosen name of the environment is here venv. It can be changed to a name of your choice.
-3. Activate this environment using commandline command<br>
+Dit maakt een basis virtuele omgevingsmap genaamd venv in de hoofdmap van uw project<br>
+NB: De gekozen naam van de omgeving is hier venv. Het kan worden gewijzigd in een naam naar keuze.
+Activeer deze omgeving met behulp van command-line commando<br>
 <code>venv\Scripts\activate</code><br>
-4. All required packages can now be installed with command line command<br>
+Alle benodigde pakketten kunnen nu worden geïnstalleerd met het command-line commando<br>
 <code>pip install -r requirements.txt</code><br>
 
 ## Choosing your parameters
