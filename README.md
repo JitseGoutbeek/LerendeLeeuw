@@ -83,36 +83,34 @@ Dit maakt een paar functionaliteiten mogelijk:
 * U kunt ook uw documenten insluiten en vragen stellen via uw opdrachtterminal, daarnaast kunt u via de opdrachtterminal automatisch een grotere reeks vragen stellen en de antwoorden opslaan of automatisch evalueren. We zullen hieronder doorlopen hoe u deze verschillende opties kunt gebruiken, vergeet niet om de juiste instellingen te kiezen voordat u een functionaliteit gebruikt.
 
 ### Vragen stellen over uw documenten via een gebruikersinterface
-Met het opdrachtregelcommando: `streamlit run streamlit_app.py` kunt u een interface starten. Wanneer dit commando wordt gebruikt, wordt automatisch een browsersessie geopend. In deze browser kunt u vragen stellen over documenten die u in de map docs heeft geplaatst, er staat een kleine uitleg aan de linkerkant van het scherm die de eerste keer moet worden gelezen bij het gebruik van de online interface.
+Met het commando: `streamlit run streamlit_app.py` kunt u een interface starten. Wanneer dit commando wordt gebruikt, wordt automatisch een browsersessie geopend. In deze browser kunt u vragen stellen over documenten die u in de map docs heeft geplaatst, er staat een kleine uitleg aan de linkerkant van het scherm die de eerste keer moet worden gelezen bij het gebruik van de online interface.
 
 ### Documenten insluiten
 We kunnen ook vragen stellen, één voor één of in meervouden, via de opdrachtterminal. In dit geval moeten we eerst de documenten vectoriseren waarover we vragen willen stellen.
 Hiervoor wordt ingest.py gebruikt. Maak hiervoor eerst een submap in de map docs met de documenten waarover u vragen wilt stellen, geef de map een herkenbare naam met alleen kleine letters. Typ vervolgens `python ingest.py` in een geactiveerde virtuele omgeving. Dit vraagt u in welke map u wilt vectoriseren en u kunt de naam van de map met de relevante documenten typen.
 
 ### Documenten bevragen
-Om vragen te stellen over documenten in uw virtuele omgeving kunt u het bestand query.py gebruiken (de benodigde map moet zijn ingesloten). Typ om dit te doen gewoon `python query.py` in uw geactiveerde virtuele omgeving, en typ de naam van de map die de documenten bevat waarover u vragen wilt stellen.
+Om vragen te stellen over documenten in uw virtuele omgeving kunt u het bestand query.py gebruiken (de benodigde map moet zijn ingesloten). Type om dit te doen gewoon `python query.py` in uw geactiveerde virtuele omgeving, en typ de naam van de map die de documenten bevat waarover u vragen wilt stellen.
 
 ### Meerdere documenten bevragen met meerdere vragen in batch
-U kunt ook meerdere vragen tegelijk stellen, de code zal elke vraag door uw RAG-pijplijn uitvoeren en de relevante vragen en antwoorden opslaan in een `.csv`-bestand. Om dit te doen, ga naar de map die de relevante documenten bevat in docs, maak een submap genaamd "review" en maak een `.txt`-bestand in die map met de relevante vragen. Typ nu in uw opdrachtvenster:
-`python review.py` en typ de naam van de map die de documenten bevat waar uw vragen over gaan. Als u dit lokaal doet en het `.txt`-bestand bevat veel vragen, kan het even duren, maar aan het eind moet een `.csv`-bestand worden opgeslagen in de review map met de vragen en automatisch gegenereerde antwoorden.
+U kunt ook meerdere vragen tegelijk stellen, de code zal elke vraag door uw RAG-pijplijn uitvoeren en de relevante vragen en antwoorden opslaan in een `.csv`-bestand. Om dit te doen, ga naar de map die de relevante documenten bevat in docs, maak een submap genaamd "review" en maak een `.txt`-bestand in die map met de relevante vragen. Schrijf vervolgens:`python review.py` en geef de naam van de map die de documenten bevat waar uw vragen over gaan. Als u dit lokaal doet en het `.txt`-bestand bevat veel vragen, kan het lang duren, maar aan het eind moet een `.csv`-bestand worden opgeslagen in de review map met de vragen en automatisch gegenereerde antwoorden.
 
 ### Evaluatie van Vraag- en Antwoordresultaten
 Het bestand evaluate.py kan worden gebruikt om de gegenereerde antwoorden te evalueren voor een lijst met vragen, op voorwaarde dat het bestand eval.json bestaat, met daarin niet alleen de lijst met vragen maar ook de bijbehorende lijst met gewenste antwoorden (grondwaarheid).
-Evaluatie wordt op mapniveau uitgevoerd in de geactiveerde virtuele omgeving met het commandoregelcommando: `python evaluate.py`. Het is ook mogelijk om een evaluatie uit te voeren over alle mappen met `python evaluate_all.py`. De resultaten worden gegenereerd in een `.tsv`-bestand. Dit bestand kan worden geopend in Microsoft Excel om een duidelijk overzicht van de resultaten te krijgen. Meer informatie over de metrieken die in de resultaten worden getoond, is te vinden op: https://docs.ragas.io/en/stable/getstarted/evaluation.html#metrics/.
+Evaluatie wordt op mapniveau uitgevoerd in de geactiveerde virtuele omgeving met het commando: `python evaluate.py`. Het is ook mogelijk om een evaluatie uit te voeren over alle mappen met `python evaluate_all.py`. De resultaten worden gegenereerd in een `.tsv`-bestand. Dit bestand kan worden geopend in Microsoft Excel om een duidelijk overzicht van de resultaten te krijgen. Meer informatie over de metrieken die in de resultaten worden getoond, is te vinden op: https://docs.ragas.io/en/stable/getstarted/evaluation.html#metrics/.
 
 #### Genereren van testgegevens voor evaluatie
 TODO
 
 ### Monitoring van de evaluatieresultaten via een Streamlit-gebruikersinterface
 Alle evaluatieresultaten kunnen worden bekeken door gebruik te maken van een speciale gebruikersinterface.
-Deze evaluatie-UI kan worden gestart met het commandoregelcommando:<br>
+Deze evaluatie-UI kan worden gestart met het commando:<br>
 <code>streamlit run streamlit_evaluate.py</code><br>
 Wanneer dit commando wordt gebruikt, wordt automatisch een browsersessie geopend.
 
-
 ### Insluiten en bevragen van documenten via een Flask-gebruikersinterface
 De hierboven beschreven functionaliteiten kunnen ook worden gebruikt via een Flask-gebruikersinterface.
-De Flask-UI kan worden gestart in de geactiveerde virtuele omgeving met het commandoregelcommando:<br>
+De Flask-UI kan worden gestart in de geactiveerde virtuele omgeving door het volgende commando in te vullen:<br>
 <code>python flask_app.py</code>
 De Flask-UI is op maat gemaakt voor toekomstig gebruik in productie en bevat meer inzicht in de chunks (gebruikt) en bevat ook gebruikersbeheerfunctionaliteit, onder andere.<br>
 Voor een meer gedetailleerde beschrijving en installatie, zie het readme-bestand in de flask_app-map
@@ -121,10 +119,10 @@ Voor een meer gedetailleerde beschrijving en installatie, zie het readme-bestand
 - **LangChain**: Framework voor het ontwikkelen van applicaties aangedreven door taalmodellen
 - **LlamaCPP**: Python-bindings voor de Transformer-modellen geïmplementeerd in C/C++
 - **FAISS**: Open-source bibliotheek voor efficiënte gelijkeniszoekopdrachten en clustering van dichte vectoren.
-- **Sentence-Transformers (all-MiniLM-L6-v2)**: Open-source voorgetraind transformer-model voor het insluiten van tekst in een 384-dimensionale dichte vectorruimte voor taken zoals clustering of semantisch zoeken.
-- **Llama-2-7B-Chat**: Open-source fijnafgestemd Llama 2-model ontworpen voor chatdialogen. Maakt gebruik van openbaar beschikbare instructiedatasets en meer dan 1 miljoen menselijke annotaties. 
+- **Sentence-Transformers (all-MiniLM-L6-v2)**: Open-source pre-trained transformer-model voor het insluiten van tekst in een 384-dimensionale dichte vectorruimte voor taken zoals clustering of semantisch zoeken.
+- **Llama-2-7B-Chat**: Open-source fine-tuned Llama 2-model ontworpen voor chat functies. Maakt gebruik van openbaar beschikbare instructiedatasets en meer dan 1 miljoen menselijke annotaties. 
 
-## Erkenningen
+## Belangrijkste bron
 Dit is een fork van [appl-docchat van het Planbureau voor de Leefomgeving](https://github.com/pbl-nl/appl-docchat).
 
 ## Referenties
