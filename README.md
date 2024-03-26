@@ -17,6 +17,7 @@ De instructies zijn geschreven onder de veronderstelling dat u Anaconda en Pytho
 Open uw terminal (bijvoorbeeld Anaconda PowerShell-prompt) en open de map waarin u deze repository wilt installeren, maak bijvoorbeeld een map genaamd Repositories en open deze in uw terminal (u kunt het commando cd gebruiken om naar de benodigde map te gaan, bijvoorbeeld cd windows/users/repositories).
 Clone deze repo met het commando <br><code>git clone https://github.com/JitseGoutbeek/LerendeLeeuw.git </code><br>
 Maak een submap vector_stores in de hoofdmap van de gekloonde repo
+
 ## Conda virtuele omgeving instellen
 Open een Anaconda-prompt of andere opdrachtprompt
 Ga naar de hoofdmap van het project en maak een Python-omgeving met conda met behulp van command-line commando<br>
@@ -25,6 +26,7 @@ NB: De naam van de omgeving is standaard lerendeleeuw. Het kan worden gewijzigd 
 Activeer deze omgeving met behulp van command-line commando <br><code>conda activate lerendeleeuw</code><br>
 Alle benodigde pakketten kunnen nu worden geïnstalleerd met het command-line commando<br>
 <code>pip install -r requirements.txt</code><br> (sla dit over als u liever in een virtuele omgeving werkt)
+
 ## Pip virtuele omgeving instellen
 ! U hoeft geen pip virtuele omgeving in te stellen als u uw conda-omgeving al hebt ingesteld.
 
@@ -38,105 +40,94 @@ Activeer deze omgeving met behulp van command-line commando<br>
 Alle benodigde pakketten kunnen nu worden geïnstalleerd met het command-line commando<br>
 <code>pip install -r requirements.txt</code><br>
 
-## Choosing your parameters
-The file settings_template.py contains all parameters that can be used and needs to be copied to settings.py. In settings.py, fill in the parameter values you want to use for your use case. 
-Examples and restrictions for parameter values are given in the comment lines. Among other things you need to decide what models you want to use and if you want to run them locally (on your own hardware) or externally (using the hardware from for example OpenAI or Huggingface by using an API key). 
+## Het kiezen van uw parameters
+Het bestand settings_template.py bevat alle parameters die kunnen worden gebruikt en moet worden gekopieerd naar settings.py. Vul in settings.py de parameterwaarden in die u wilt gebruiken voor uw gebruikssituatie. Voorbeelden en beperkingen voor parameterwaarden worden gegeven in de commentaarl...
 
-If you want to run this locally using Ollama you will need to do the following:
+Als u dit lokaal wilt uitvoeren met behulp van Ollama, moet u het volgende doen:
 
 1. Download Ollama: https://ollama.com/
-2. In settings choice `LLM_TYPE = "local_llm"`
-3. Go to models and choose a model you want to use, we recommend zephyr and mistral-openorca especially when working in non-english languages, if you have the memory Mixtral can also be a good choice (this model is 26 GB compared to 4 GB for mistral-openorca, but should perform better) you can experiment with different models yourself. Set `LLM_MODEL_TYPE = <model_name>`. So in our example `LLM_MODEL_TYPE = "mistral-openorca"`.
-4. download the model on your device by typing <code> ollama pull model_name </code> in your terminal, e.g. <code> ollama pull mistral-openorce </code>
-5. In settings choice `EMBEDDING_PROVIDER = "local_embeddings"`, choose an embeddings model from: https://huggingface.co/models?library=sentence-transformers&sort=trending. In the settings, set the embedding-model to that name `EMBEDDINGS_MODEL = "jegormeister/bert-base-dutch-cased"`.
+2. Maak in de instellingen de keuze `LLM_TYPE = "local_llm"`
+3. Ga naar modellen en kies een model dat u wilt gebruiken, we raden zephyr en mistral-openorca met name aan bij het werken in niet-Engelse talen, als u het geheugen heeft, kan Mixtral ook een goede keuze zijn (dit model is 26 GB vergeleken met 4 GB voor mistral-openorca, maar zou beter moeten presteren). U kunt zelf experimenteren met verschillende modellen. Stel `LLM_MODEL_TYPE = <model_name>` in. Dus in ons voorbeeld `LLM_MODEL_TYPE = "mistral-openorca"`.
+4. Download het model op uw apparaat door <code> ollama pull model_name </code> in uw terminal te typen, bijvoorbeeld <code> ollama pull mistral-openorce </code>
+5. In de instellingen, kies `EMBEDDING_PROVIDER = "local_embeddings"`, kies een embeddings-model van: https://huggingface.co/models?library=sentence-transformers&sort=trending. Stel in de instellingen het embedding-model in op die naam `EMBEDDINGS_MODEL = "jegormeister/bert-base-dutch-cased"`.
 
-If you want to do the latter and use the LLM's or Embedding models provided by OpenAI (GPT-3.5 / GPT-4 / Text-Embeddings-Ada-002) you will need to do the following:
+Als u het laatste wilt doen en de LLM's of Embedding-modellen van OpenAI (GPT-3.5 / GPT-4 / Text-Embeddings-Ada-002) wilt gebruiken, moet u het volgende doen:
 
-1. Go to [https://platform.openai.com/docs/overview](https://auth0.openai.com/u/signup/identifier?state=hKFo2SAxWUNzRWVLbFJfWnFkYzAyNm5oTFRkbF8xZ2NJNkhSV6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDJBaFhUNTB6RWx1VkRaSXZ6U3JLQ2NDaUdwY255Mjlao2NpZNkgRFJpdnNubTJNdTQyVDNLT3BxZHR3QjNOWXZpSFl6d0Q) and either login or sign up, this option costs money (a fraction of a cent per question).
-2. Create a file `.env` and enter your OpenAI API key in the first line of this file :<br>
-<code>OPENAI_API_KEY="sk-....."</code><br> 
-Save and close the `.env` file.<br>
-* In case you don't have an OpenAI API key yet, you can obtain one here: https://platform.openai.com/account/api-keys.
-* Click on + Create new secret key.
-* Enter an identifier name (optional) and click on Create secret key.
+1. Ga naar [https://platform.openai.com/docs/overview](https://auth0.openai.com/u/signup/identifier?state=hKFo2SAxWUNzRWVLbFJfWnFkYzAyNm5oTFRkbF8xZ2NJNkhSV6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDJBaFhUNTB6RWx1VkRaSXZ6U3JLQ2NDaUdwY255Mjlao2NpZNkgRFJpdnNubTJNdTQyVDNLT3BxZHR3QjNOWXZpSFl6d0Q) en log in of meld u aan, deze optie kost geld (een fractie van een cent per vraag).
+2. Maak een bestand `.env` aan en voer uw OpenAI API-sleutel in op de eerste regel van dit bestand: <br>
+<code>OPENAI_API_KEY="sk-....."</code><br>
+Sla het `.env`-bestand op en sluit het. <br>
+* Als u nog geen OpenAI API-sleutel heeft, kunt u er hier een verkrijgen: https://platform.openai.com/account/api-keys.
+* Klik op + Nieuwe geheime sleutel maken.
+* Voer een identificatienaam in (optioneel) en klik op Geheime sleutel maken.
 
-If you want to use one of the many open source models on Huggingface and use their hardware (so run it externally):
+Als u een van de vele open source modellen op Huggingface wilt gebruiken en hun hardware wilt gebruiken (dus extern uitvoeren):
 
-* Register at https://huggingface.co/join.
-* When registered and logged in, you can get your API key in your Hugging Face profile settings.
-* Enter your Hugging Face API key in the second line of the `.env` file:<br>
+* Registreer op https://huggingface.co/join.
+* Wanneer u bent geregistreerd en ingelogd, kunt u uw API-sleutel van Hugging Face vinden in uw profielinstellingen.
+* Voer uw Hugging Face API-sleutel in op de tweede regel van het `.env`-bestand:<br>
 <code>HUGGINGFACEHUB_API_TOKEN="hf_....."</code><br>
 
-You also need to decide how you want to 'chunk' your documents. Before embedding a document it is split up in pieces of text of a certain length and these pieces are subsequently vectorized and the most relevant (highest similarity score) of them retrieved and used as input by the LLM. In settings you can choose roughly how long you want to make the chunks and how many of them you want to retrieve.
-* Chunk-Size specifies the number of tokens a chunk should roughly be a token tends to be a bit less than a word so the standard 1000 tokens is roughly 700 words, the code chunks the text in a way where the entirety of a paragraph is within the same chunk. It usually takes the maximimum number of paragraphs together in one chunk that together are still smaller than the chunk size.
-* chunk_k is the number of chunks retrieved
-* chunk_overlap specifies how long the overlap between chunks should be, it is often useful to have some overlap since the paragraph before can provide crucial context for the paragraph that follows and vice versa, having larger overlap makes it more likely units of text that are crucial for understanding each other accurately are in the same chunk.
-In general when choosing these parameters there are a couple of things to consider. Firstly the product of chunk-size and number of chunks should be lower than the context window of the LLM you are using, gpt-35 for example has a context window of 4097 tokens so chunk_size*chunk_k < 4097. Furthermore a large chunk-size or a large number of chunks can cause a 'lost in the middle problem' where when the LLM is provided more context than needed it makes it less likely that it answers based on the truly most relevant context and therefore can make it less accurate. However, it should be provided with enough context to answer the type of questions you are asking well. If your documents contain for example a long explanation of something and you want the RAG application to be able to find that explanation and summarise it in its entirety, the context-size needs to be at least as long as that explanation. If you want to ask questions to which the answer isn't found in one place in one document but instead requires a lot of information that is difused over many documents the number of chunks needs to be at least as high as this number of documents. Furthermore, more chunks and a bigger chunk_size allows the embedding model more room for error, it might not have correctly identified the most relevant chunk, but maybe it still thought the chunk with the answer was the 4th most relevant which can be good enough with a chunk_k of 4.
-* Score_threshold contains a value between 0 and 1 that stipulates how similar a chunk needs to be in order to be provided as context, in theory this can be used to combat the lost in the middle problem by making a pre-selection where less than chunk_k chunks are given if not enough relevant enough chunks are found. The closer to 1 the more rigorous the selection. 
-* This score_threshold is only used if search_type is set to similarity_score_threshold, if search_type is similarity it will always retrieve chunk_k chunks, which is equivalent to a score_threshold of 0.
+U moet ook beslissen hoe u uw documenten wilt 'chunken'. Voordat een document wordt ingebed, wordt het opgedeeld in stukken tekst van een bepaalde lengte en deze stukken worden vervolgens gevectoriseerd en het meest relevante (hoogste gelijkenisscore) ervan wordt opgehaald en gebruikt als invoer door de LLM. In instellingen kunt u ongeveer kiezen hoe lang u de chunks wilt maken en hoeveel u er wilt ophalen.
 
-The rest of the settings are not that important for the functioning of the application, you can just leave them as is, a lot of them are about the way the interface looks for example. 
+## Gebruik van het repository
 
-
-## Using the repository
-
-In order to use this repository you need to be in the right folder and right virtual environment. If you are not in the right virtual environment you need to activate your virtual environment:
+Om dit repository te gebruiken, moet u zich in de juiste map en het juiste virtuele omgeving bevinden. Als u zich niet in de juiste virtuele omgeving bevindt, moet u uw virtuele omgeving activeren:
 <br><code>conda activate learninglion</code><br>
-If you are not in the right folder (LearningLion) you need to move to that folder, with the command cd you can move to the right folder, for example:
-<br><code> cd windows/users/repositories/LearningLion </code><br> ofcourse if you have cloned the LearningLion repository to a different path you need to adjust to go to where you saved it.
+Als u zich niet in de juiste map bevindt (LearningLion), moet u naar die map gaan. Met het commando cd kunt u naar de juiste map gaan, bijvoorbeeld:
+<br><code> cd windows/users/repositories/LearningLion </code><br> natuurlijk als u het LearningLion repository naar een andere locatie hebt gekloond, moet u aanpassen om naar de locatie te gaan waar u het hebt opgeslagen.
 
-This allows a couple of functionalities: 
-* You can launch a user interface in which you can select a document folder and ask questions about it
-* You can also embed your documents and ask questions through your command terminal, additionally through the command terminal you can automatically ask a larger set of questions and save the answers or automatically evaluate the answers.
-We will walk through how to use these different options below, remember to choose the right settings before using a functionality.
+Dit maakt een paar functionaliteiten mogelijk:
+* U kunt een gebruikersinterface starten waarin u een documentmap kunt selecteren en er vragen over kunt stellen
+* U kunt ook uw documenten insluiten en vragen stellen via uw opdrachtterminal, daarnaast kunt u via de opdrachtterminal automatisch een grotere reeks vragen stellen en de antwoorden opslaan of automatisch evalueren. We zullen hieronder doorlopen hoe u deze verschillende opties kunt gebruiken, vergeet niet om de juiste instellingen te kiezen voordat u een functionaliteit gebruikt.
 
-### Asking questions about your documents through a User Interface
-With the commandline command: `streamlit run streamlit_app.py` you can start an interface. When this command is used, a browser session will open automatically. In this browser you can ask questions about documents you put in the docs fodler, there is a little explainer on the left side of the screen that should be read the first time using the online interface.
+### Vragen stellen over uw documenten via een gebruikersinterface
+Met het opdrachtregelcommando: `streamlit run streamlit_app.py` kunt u een interface starten. Wanneer dit commando wordt gebruikt, wordt automatisch een browsersessie geopend. In deze browser kunt u vragen stellen over documenten die u in de map docs heeft geplaatst, er staat een kleine uitleg aan de linkerkant van het scherm die de eerste keer moet worden gelezen bij het gebruik van de online interface.
 
-### Ingesting documents
-We can also ask questions, either 1 at a time or in multiples, through the command terminal. In this case we need to vectorize the documents we want to ask questions about first.
-For this ingest.py is used. To do this first make a subfolder in the docs folder containing the documents you want to ask questions about, give the folder a recognizable name with only lower case letters. Subsequently type `python ingest.py` in an activated virtual environment. This asks you which folder you want to vectorize and you can type the name of the folder with the relevant documents.
+### Documenten insluiten
+We kunnen ook vragen stellen, één voor één of in meervouden, via de opdrachtterminal. In dit geval moeten we eerst de documenten vectoriseren waarover we vragen willen stellen.
+Hiervoor wordt ingest.py gebruikt. Maak hiervoor eerst een submap in de map docs met de documenten waarover u vragen wilt stellen, geef de map een herkenbare naam met alleen kleine letters. Typ vervolgens `python ingest.py` in een geactiveerde virtuele omgeving. Dit vraagt u in welke map u wilt vectoriseren en u kunt de naam van de map met de relevante documenten typen.
 
-### Querying documents
-To ask questions about documents in your virtual environment you can use the file query.py (the necessary folder needs to be ingested). In order to do so just type `python query.py` in your activated virtual environment, and type in the name of the folder containing the documents you want to ask questions about. 
+### Documenten bevragen
+Om vragen te stellen over documenten in uw virtuele omgeving kunt u het bestand query.py gebruiken (de benodigde map moet zijn ingesloten). Typ om dit te doen gewoon `python query.py` in uw geactiveerde virtuele omgeving, en typ de naam van de map die de documenten bevat waarover u vragen wilt stellen.
 
-### Querying multiple documents with multiple questions in batch
-You can also ask multiple questions at the same time, the code will run each question through your RAG pipeline and save the relevant questions and answers in a `.csv` file. To do this go to the folder containing the relevant documents in docs, make a subfolder named "review" and make a `.txt` file in that folder containing the relevant questions. Now type in your command window:
-`python review.py` and type in the name of the folder containing the documents your questions are about. If you do this locally and the `.txt` file contains a lot of questions it might take a while, but at the end a `.csv` file should be saved in the review folder containing the questions and automatically generated answers. 
+### Meerdere documenten bevragen met meerdere vragen in batch
+U kunt ook meerdere vragen tegelijk stellen, de code zal elke vraag door uw RAG-pijplijn uitvoeren en de relevante vragen en antwoorden opslaan in een `.csv`-bestand. Om dit te doen, ga naar de map die de relevante documenten bevat in docs, maak een submap genaamd "review" en maak een `.txt`-bestand in die map met de relevante vragen. Typ nu in uw opdrachtvenster:
+`python review.py` en typ de naam van de map die de documenten bevat waar uw vragen over gaan. Als u dit lokaal doet en het `.txt`-bestand bevat veel vragen, kan het even duren, maar aan het eind moet een `.csv`-bestand worden opgeslagen in de review map met de vragen en automatisch gegenereerde antwoorden.
 
-### Evaluation of Question Answer results
-The file evaluate.py can be used to evaluate the generated answers for a list of questions, provided that the file eval.json exists, containing not only the list of questions but also the related list of desired answers (ground truth).<br>
-Evaluation is done at folder level in the activated virtual environment using commandline command:`python evaluate.py` It is also possible to run an evaluation over all folders with `python evaluate_all.py`. The results will be generated in a `.tsv` file. Which can be opened in Microsoft Excel to have a clear overview of the results. More info on the metrics shown in the results can be found here: https://docs.ragas.io/en/stable/getstarted/evaluation.html#metrics/.
+### Evaluatie van Vraag- en Antwoordresultaten
+Het bestand evaluate.py kan worden gebruikt om de gegenereerde antwoorden te evalueren voor een lijst met vragen, op voorwaarde dat het bestand eval.json bestaat, met daarin niet alleen de lijst met vragen maar ook de bijbehorende lijst met gewenste antwoorden (grondwaarheid).
+Evaluatie wordt op mapniveau uitgevoerd in de geactiveerde virtuele omgeving met het commandoregelcommando: `python evaluate.py`. Het is ook mogelijk om een evaluatie uit te voeren over alle mappen met `python evaluate_all.py`. De resultaten worden gegenereerd in een `.tsv`-bestand. Dit bestand kan worden geopend in Microsoft Excel om een duidelijk overzicht van de resultaten te krijgen. Meer informatie over de metrieken die in de resultaten worden getoond, is te vinden op: https://docs.ragas.io/en/stable/getstarted/evaluation.html#metrics/.
 
-#### Generating test data for evaluation
+#### Genereren van testgegevens voor evaluatie
 TODO
 
-### Monitoring the evaluation results through a Streamlit User Interface
-All evaluation results can be viewed by using a dedicated User Interface.<br>
-This evaluation UI can be started by using commandline command:<br>
+### Monitoring van de evaluatieresultaten via een Streamlit-gebruikersinterface
+Alle evaluatieresultaten kunnen worden bekeken door gebruik te maken van een speciale gebruikersinterface.
+Deze evaluatie-UI kan worden gestart met het commandoregelcommando:<br>
 <code>streamlit run streamlit_evaluate.py</code><br>
-When this command is used, a browser session will open automatically
+Wanneer dit commando wordt gebruikt, wordt automatisch een browsersessie geopend.
 
 
-### Ingesting and querying documents through a Flask User Interface
-The functionalities described above can also be used through a Flask User Interface.<br>
-The flask UI can be started in the activated virtual environment using commandline command:<br>
+### Insluiten en bevragen van documenten via een Flask-gebruikersinterface
+De hierboven beschreven functionaliteiten kunnen ook worden gebruikt via een Flask-gebruikersinterface.
+De Flask-UI kan worden gestart in de geactiveerde virtuele omgeving met het commandoregelcommando:<br>
 <code>python flask_app.py</code>
-The Flask UI is tailored for future use in production and contains more insight into the chunks (used) and also contains user admin functionality among others.<br>
-For a more detailed description and installation, see the readme file in the  flask_app folder
+De Flask-UI is op maat gemaakt voor toekomstig gebruik in productie en bevat meer inzicht in de chunks (gebruikt) en bevat ook gebruikersbeheerfunctionaliteit, onder andere.<br>
+Voor een meer gedetailleerde beschrijving en installatie, zie het readme-bestand in de flask_app-map
 
 ## Tools
-- **LangChain**: Framework for developing applications powered by language models
-- **LlamaCPP**: Python bindings for the Transformer models implemented in C/C++
-- **FAISS**: Open-source library for efficient similarity search and clustering of dense vectors.
-- **Sentence-Transformers (all-MiniLM-L6-v2)**: Open-source pre-trained transformer model for embedding text to a 384-dimensional dense vector space for tasks like clustering or semantic search.
-- **Llama-2-7B-Chat**: Open-source fine-tuned Llama 2 model designed for chat dialogue. Leverages publicly available instruction datasets and over 1 million human annotations. 
+- **LangChain**: Framework voor het ontwikkelen van applicaties aangedreven door taalmodellen
+- **LlamaCPP**: Python-bindings voor de Transformer-modellen geïmplementeerd in C/C++
+- **FAISS**: Open-source bibliotheek voor efficiënte gelijkeniszoekopdrachten en clustering van dichte vectoren.
+- **Sentence-Transformers (all-MiniLM-L6-v2)**: Open-source voorgetraind transformer-model voor het insluiten van tekst in een 384-dimensionale dichte vectorruimte voor taken zoals clustering of semantisch zoeken.
+- **Llama-2-7B-Chat**: Open-source fijnafgestemd Llama 2-model ontworpen voor chatdialogen. Maakt gebruik van openbaar beschikbare instructiedatasets en meer dan 1 miljoen menselijke annotaties. 
 
-## Acknowledgements
-This is a fork of [appl-docchat from Planbureau voor de Leefomgeving](https://github.com/pbl-nl/appl-docchat).
+## Erkenningen
+Dit is een fork van [appl-docchat van het Planbureau voor de Leefomgeving](https://github.com/pbl-nl/appl-docchat).
 
-## References
-This repo is mainly inspired by:
+## Referenties
+Dit repo is voornamelijk geïnspireerd door:
 - https://docs.streamlit.io/
 - https://docs.langchain.com/docs/
 - https://blog.langchain.dev/tutorial-chatgpt-over-your-data/
