@@ -9,7 +9,7 @@ Het project is een studie naar het gebruik van generatieve AI om de diensten van
 De huidige repository is gebaseerd op de repository gemaakt door PBL onder leiding van Stefan Troost (https://github.com/pbl-nl/appl-docchat), aangepast voor onze specifieke gebruiksscenario's. De demo is een voorbeeld van Retrieval Augmented Generation (RAG) en maakt het mogelijk om zowel Open als Closed-Source LLM's te gebruiken en te evalueren. Het maakt gebruik van Langchain, Chroma en Streamlit, onder andere, om documentvragen en -antwoorden uit te voeren. Op dit moment is het voornamelijk een kloon met enkele toevoegingen (om het lokaal uitvoeren ervan bijvoorbeeld gemakkelijker te maken) en bevat het aanvullende projectdocumenten (in project_docs) die achtergrondinformatie bieden over dit project, de beslissingen die we hebben genomen en het onderzoek dat we hebben uitgevoerd.
 
 
-## Hoe deze repo te gebruiken
+## Gebruik van de repository
 Deze repo is getest op een Windows-platform.
 De instructies zijn geschreven onder de veronderstelling dat u Anaconda en Python hebt geïnstalleerd. Zo niet, download Python (https://www.python.org/downloads/) en volg deze installatiegids voor Anaconda: https://docs.anaconda.com/free/anaconda/install/windows/.
 
