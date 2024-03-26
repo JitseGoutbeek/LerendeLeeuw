@@ -1,5 +1,5 @@
 # LerendeLeeuw
-Dit is de Nederlandse versie van het LearningLion-project. Voor de Engelse versie zie: https://github.com/SSC-ICT-Innovatie/LearningLion-web
+Dit is de Nederlandse versie van het LearningLion-project. Voor de Engelse versie zie: https://github.com/SSC-ICT-Innovatie/LearningLion
 
 ## Beschrijving van het project
 Het project is een studie naar het gebruik van generatieve AI om de diensten van SSC-ICT te verbeteren door medewerkers te ondersteunen en interne processen te optimaliseren. In het bijzonder ligt de focus op generatieve grote taalmodellen (LLM), in de vorm van Retrieval Augmented Generation (RAG), omdat ze de grootste impact kunnen hebben op het dagelijkse werk van SSC-ICT-medewerkers. De opdracht (Speech Recognition & AI) is goedgekeurd door de SpB en loopt sinds begin 2023.
